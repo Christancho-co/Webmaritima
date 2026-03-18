@@ -16,7 +16,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/fondo.jpg"
+            src="/images/fondo.png"
             alt="Fondo de yate"
             fill
             // En móvil enfocamos el centro, en PC también

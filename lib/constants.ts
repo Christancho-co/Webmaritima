@@ -1,18 +1,21 @@
 export const IMAGES = {
-  hero: 'https://cdn.abacus.ai/images/de1acd7b-45e5-44c0-90ba-668c73d5e9d1.png',
+  hero: '/images/fondo.png',
 
-  // Recreational MT-21 (4 fotos: portada + 3 galería)
-  mt21:        '/images/recreational/mt-21-1.jpg',   // Portada (lista de modelos)
-  mt21Gallery1: '/images/recreational/mt-21-2.jpg',  // Galería foto 1
-  mt21Gallery2: '/images/recreational/mt-21-3.jpg',  // Galería foto 2
-  mt21Gallery3: '/images/recreational/mt-21-4.jpg',  // Galería foto 3
+  // Recreational MT-21 (6 fotos: portada + 5 galería)
+  mt21:         '/images/recreational/mt-21/1.png',
+  mt21Gallery1: '/images/recreational/mt-21/2.png',
+  mt21Gallery2: '/images/recreational/mt-21/3.png',
+  mt21Gallery3: '/images/recreational/mt-21/4.png',
+  mt21Gallery4: '/images/recreational/mt-21/5.png',
+  mt21Gallery5: '/images/recreational/mt-21/6.png',
 
   // Recreational MT-31 (4 fotos: portada + 3 galería)
-  mt31:        '/images/recreational/mt-31-1.jpg',
-  mt31Gallery1: '/images/recreational/mt-31-2.jpg',
-  mt31Gallery2: '/images/recreational/mt-31-3.jpg',
-  mt31Gallery3: '/images/recreational/mt-31-4.jpg',
-
+  mt31:         '/images/recreational/mt-31/1.png',
+  mt31Gallery1: '/images/recreational/mt-31/2.png',
+  mt31Gallery2: '/images/recreational/mt-31/3.png',
+  mt31Gallery3: '/images/recreational/mt-31/4.png',
+  mt31Gallery4: '/images/recreational/mt-31/5.png',
+  mt31Gallery5: '/images/recreational/mt-31/6.png',
   // Work
  // Work - Pilot 42
  pilot42:        '/images/work/pilot-42-1.jpg',
