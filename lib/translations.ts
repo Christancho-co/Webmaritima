@@ -3,7 +3,7 @@ export const translations = {
     // Header
     nav: {
       recreational: 'Recreational',
-      work: 'Work',
+      institutional: 'Institutional',
       militaryGrade: 'Military Grade',
       specialProjects: 'Special Projects',
       store: 'Store',
@@ -22,8 +22,8 @@ export const translations = {
     categories: {
       recreational: 'Recreational',
       recreationalSub: 'Lifestyle Series',
-      work: 'Work',
-      workSub: 'Professional Series',
+      institutional: 'Institutional',
+      institutionalSub: 'Professional Series',
       military: 'Military Grade',
       militarySub: 'Defense & Tactical Series',
       special: 'Special Projects',
@@ -49,7 +49,7 @@ export const translations = {
     footer: {
       ourBoats: 'Our Boats',
       recreational: 'Recreational',
-      work: 'Work',
+      institutional: 'Institutional',
       militaryGrade: 'Military Grade',
       specialProjects: 'Special Projects',
       officialStore: 'Official Store',
@@ -107,7 +107,7 @@ export const translations = {
     // Header
     nav: {
       recreational: 'Recreacional',
-      work: 'Trabajo',
+      institutional: 'Institucional',
       militaryGrade: 'Grado Militar',
       specialProjects: 'Proyectos Especiales',
       store: 'Tienda',
@@ -126,8 +126,8 @@ export const translations = {
     categories: {
       recreational: 'Recreacional',
       recreationalSub: 'Serie Lifestyle',
-      work: 'Trabajo',
-      workSub: 'Serie Profesional',
+      institutional: 'Institucional',
+      institutionalSub: 'Serie Profesional',
       military: 'Grado Militar',
       militarySub: 'Serie Defensa & Táctica',
       special: 'Proyectos Especiales',
@@ -153,7 +153,7 @@ export const translations = {
     footer: {
       ourBoats: 'Nuestros Barcos',
       recreational: 'Recreacional',
-      work: 'Trabajo',
+      institutional: 'Institucional',
       militaryGrade: 'Grado Militar',
       specialProjects: 'Proyectos Especiales',
       officialStore: 'Tienda Oficial',

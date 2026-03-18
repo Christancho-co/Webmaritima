@@ -25,8 +25,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/work" className="hover:text-[#00CED1] transition-colors">
-                  {t.footer.work}
+                <Link href="/institutional" className="hover:text-[#00CED1] transition-colors">
+                  {t.footer.institutional}
                 </Link>
               </li>
               <li>

@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { BOAT_MODELS } from '@/lib/data';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function WorkPage() {
+export default function InstitutionalPage() {
   const { language } = useLanguage();
-  const { models } = BOAT_MODELS.work;
+  const { models } = BOAT_MODELS.institutional;
 
   return (
     <div className="min-h-screen bg-[#001F3F]">
@@ -27,7 +27,7 @@ export default function WorkPage() {
 
         <div className="relative z-10 text-center px-4 -mt-40 md:-mt-61">
            <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-40px] md:-mt-40">
-            {language === 'en' ? 'WORK' : 'TRABAJO'}
+            {language === 'en' ? 'INSTITUTIONAL' : 'INSTITUCIONAL'}
           </h1>
           <p className="text-[#001f3f]/70 text-base md:text-lg max-w-xl mx-auto font-sans px-4">
             {language === 'en'
@@ -60,7 +60,7 @@ export default function WorkPage() {
             {models.map((model) => (
               <Link
                 key={model.id}
-                href={`/work/${model.id}`}
+                href={`/institutional/${model.id}`}
                 className="group relative block overflow-hidden rounded-lg"
               >
                 {/* Imagen portada */}

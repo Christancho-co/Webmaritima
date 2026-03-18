@@ -8,7 +8,7 @@ import { BOAT_MODELS } from '@/lib/data';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowLeft, Download, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 
-export default function WorkDetailPage({
+export default function InstitutionalDetailPage({
   params,
 }: {
   params: { id: string };
@@ -17,7 +17,7 @@ export default function WorkDetailPage({
   const [activeImage, setActiveImage] = useState(0);
 
   // Busca el modelo en la categoría work
-  const model = BOAT_MODELS.work.models.find(
+  const model = BOAT_MODELS.institutional.models.find(
     (m) => m.id === params.id
   );
 
@@ -64,11 +64,11 @@ export default function WorkDetailPage({
       {/* ── Botón volver ── */}
       <div className="container mx-auto px-4 pt-8 pb-2">
         <Link
-          href="/work"
+          href="/institutional"
           className="inline-flex items-center gap-2 text-white/60 hover:text-[#00CED1] transition-colors text-sm font-sans"
         >
           <ArrowLeft className="w-4 h-4" />
-          {language === 'en' ? 'Back to Work' : 'Volver a Trabajo'}
+          {language === 'en' ? 'Back to Institutional' : 'Volver a Institucional'}
         </Link>
       </div>
 
@@ -257,7 +257,7 @@ export default function WorkDetailPage({
               {language === 'en' ? 'Contact Us' : 'Contáctanos'}
             </Link>
             <Link
-              href="/work"
+              href="/institutional"
               className="px-10 py-4 bg-transparent border-2 border-white/30 text-white font-bold tracking-widest rounded-full hover:border-[#00CED1] hover:text-[#00CED1] transition-colors uppercase font-sans text-sm"
             >
               {language === 'en' ? 'See All Models' : 'Ver Todos los Modelos'}

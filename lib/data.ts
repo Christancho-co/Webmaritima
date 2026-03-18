@@ -134,7 +134,7 @@ export const BOAT_MODELS = {
   },
 
   // ── WORK ── 
- work: {
+ institutional: {
   category: 'Professional Series',
   models: [
     {
