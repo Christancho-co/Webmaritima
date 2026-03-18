@@ -201,6 +201,8 @@ export const BOAT_MODELS = {
         IMAGES.pilot38Gallery1,
         IMAGES.pilot38Gallery2,
         IMAGES.pilot38Gallery3,
+        IMAGES.pilot38Gallery4,
+        IMAGES.pilot38Gallery5,
       ],
       pdfEs: '/docs/ficha-pilot38-es.pdf',
       pdfEn: '/docs/ficha-pilot38-en.pdf',

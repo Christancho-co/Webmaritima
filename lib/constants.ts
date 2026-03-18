@@ -26,11 +26,12 @@ export const IMAGES = {
  pilot42Gallery5: '/images/work/pilot-42/6.jpg',
 
 // Work - Pilot 38
- pilot42Profile:  '/images/work/pilot-38-1.jpg',  // portada pilot 38
- pilot38Gallery1: '/images/work/pilot-38-2.jpg',
- pilot38Gallery2: '/images/work/pilot-38-3.jpg',
- pilot38Gallery3: '/images/work/pilot-38-4.jpg',
-
+ pilot42Profile:  '/images/work/pilot-38/1.jpg',  // portada pilot 38
+ pilot38Gallery1: '/images/work/pilot-38/2.jpg',
+ pilot38Gallery2: '/images/work/pilot-38/3.jpg',
+ pilot38Gallery3: '/images/work/pilot-38/4.jpg',
+ pilot38Gallery4: '/images/work/pilot-38/5.jpg',
+ pilot38Gallery5: '/images/work/pilot-38/6.jpg',
 
  // Military - Alligator
 alligator:         '/images/military/alligator-1.jpg',
