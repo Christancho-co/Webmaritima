@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const NAV_LINKS = [
   { key: 'recreational', href: '/recreational' },
-  { key: 'Institutional', href: '/Institutional' },
+  { key: 'institutional', href: '/Institutional' },
   { key: 'militaryGrade', href: '/military' },
   { key: 'specialProjects', href: '/special-projects' },
   // { key: 'store', href: '/store' },

@@ -60,12 +60,12 @@ export default function HomePage() {
 
             {/* Work */}
             <Link
-              href="/work"
+              href="/institutional"
               className="group bg-[#001F3F]/80 backdrop-blur-md border border-white/10 p-5 md:p-6 rounded-lg hover:bg-[#00CED1]/20 hover:border-[#00CED1]/50 transition-all flex items-center justify-between"
             >
               <div>
-                <h3 className="text-white text-base md:text-lg font-bold">{t.categories.work}</h3>
-                <p className="text-[#00CED1] text-xs mt-1">{t.categories.workSub}</p>
+                <h3 className="text-white text-base md:text-lg font-bold">{t.categories.institutional}</h3>
+                <p className="text-[#00CED1] text-xs mt-1">{t.categories.institutionalSub}</p>
               </div>
               <Wrench className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
             </Link>
