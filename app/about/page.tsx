@@ -303,7 +303,7 @@ useEffect(() => {
                 <h3 className="font-brigend text-white text-5xl md:text-6xl leading-tight mb-10 whitespace-pre-line">
                     {language === 'en' 
                     ? 'Legacy, Efficiency, Innovation And Trust At Sea.' 
-                    : 'Legado, Eficiencia, Innovación y Confianza en el Mar.'}
+                    : 'Legado, Eficiencia, Innovacion y Confianza en el Mar.'}
                 </h3>
                 <p className="text-white/50 text-sm italic">
                     "{language === 'en' ? 'Legacy, efficiency, innovation and trust at sea.' : 'Legado, eficiencia, innovación y confianza en el mar.'}"

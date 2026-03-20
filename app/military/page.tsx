@@ -27,7 +27,7 @@ export default function MilitaryPage() {
 
         <div className="relative z-10 text-center px-4 -mt-10 md:mt-0">
         
-          <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-20px] md:-mt-40">
+          <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-100px] md:-mt-40">
             {language === 'en' ? 'MILITARY GRADE' : 'GRADO MILITAR'}
           </h1>
           <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto font-bold px-4">

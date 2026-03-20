@@ -23,7 +23,7 @@ const translations = {
     email: 'Correo',
     address: 'Dirección',
     addressText: 'Carrera 90 KM 9-350 Sector Bomba Zuca\n Troncal del Caribe\nSanta Marta, Magdalena',
-    tagline: 'Legado, Eficiencia,\nInnovación Y\nConfianza En El Mar',
+    tagline: 'Legado, Eficiencia,\nInnovacion Y\nConfianza En El Mar',
   },
 };
 
