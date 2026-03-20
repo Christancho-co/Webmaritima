@@ -33,7 +33,7 @@ export default function RecreationalPage() {
           <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-20px] md:-mt-40">
             {language === 'en' ? 'RECREATIONAL' : 'RECREACIONAL'}
           </h1>
-          <p className="text-[#001f3f]/70 text-base md:text-lg max-w-xl mx-auto font-sans px-4">
+          <p className="text-[#001f3f]/70 text-base md:text-lg max-w-xl mx-auto font-bold px-4">
             {language === 'en'
               ? 'Experience the perfect blend of luxury and performance.'
               : 'Experimenta la combinación perfecta de lujo y rendimiento.'}

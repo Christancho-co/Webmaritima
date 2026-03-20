@@ -70,7 +70,7 @@ const translations = {
 };
 
 const cardIcons = [Lightbulb, Wrench, CheckCircle];
-const projectImages = [IMAGES.mt31, IMAGES.pilot42Profile, IMAGES.alligatorAction];
+const projectImages = [IMAGES.mt31, IMAGES.magdalena, IMAGES.hunter38];
 
 export default function SpecialProjectsPage() {
   const { language } = useLanguage();

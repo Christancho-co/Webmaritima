@@ -29,18 +29,21 @@ export default function InstitutionalDetailPage({
     setActiveImage((prev) => (prev === model.images.length - 1 ? 0 : prev + 1));
 
   // Etiquetas bilingües específicas para Work/Pilots
-  const specLabels: Record<string, { en: string; es: string }> = {
-    loa:          { en: 'Length (LOA)', es: 'Eslora (LOA)' },
-    beam:         { en: 'Beam',         es: 'Manga' },
-    depth:        { en: 'Depth',        es: 'Puntal' },
-    draft:        { en: 'Draft',        es: 'Calado' },
-    crew:         { en: 'Crew',         es: 'Tripulación' },
-    engines:      { en: 'Engines',      es: 'Motores' },
-    maxSpeed:     { en: 'Max Speed',    es: 'Velocidad Máx.' },
-    range:        { en: 'Range',        es: 'Autonomía' },
-    maxLoad:      { en: 'Max Load',     es: 'Carga Máxima' },
-    fuelCapacity: { en: 'Fuel Tank',    es: 'Tanque Combustible' }
-  };
+ const specLabels: Record<string, { en: string; es: string }> = {
+  loa:          { en: 'Length (LOA)',    es: 'Eslora (LOA)' },
+  beam:         { en: 'Beam',           es: 'Manga' },
+  depth:        { en: 'Depth',          es: 'Puntal' },
+  draft:        { en: 'Draft',          es: 'Calado' },
+  passengers:   { en: 'Passengers',     es: 'Pasajeros' },
+  fuelCapacity: { en: 'Fuel Tank',      es: 'Tanque Combustible' },
+  maxLoad:      { en: 'Max Load',       es: 'Carga Máxima' },
+  engines:      { en: 'Engines',        es: 'Motores' },
+  crew:         { en: 'Crew',           es: 'Tripulación' },
+  maxSpeed:     { en: 'Max Speed',      es: 'Velocidad Máx.' },
+  range:        { en: 'Range',          es: 'Autonomía' },
+};
+
+  
 
   // PDF según idioma activo
   const pdfUrl = language === 'en'
@@ -91,10 +94,10 @@ export default function InstitutionalDetailPage({
 
               {/* Número superpuesto: Usa font-monument en vez de font-metag para evitar que los números fallen */}
               <div className="absolute bottom-4 left-4 leading-none select-none pointer-events-none">
-                <span className="font-monument text-white/20 text-[60px] md:text-[80px] leading-none">
-                  {model.name.replace('Pilot ', '')}
+                <span className="font-metag text-white/20 text-[60px] md:text-[80px] leading-none">
+                 {model.name.replace(/Pilot|Gaira/gi, '').trim()}
                 </span>
-              </div>
+                </div>
 
               {/* Flechas de navegación (solo aparecen si hay más de 1 foto) */}
               {model.images.length > 1 && (

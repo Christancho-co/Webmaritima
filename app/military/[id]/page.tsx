@@ -30,14 +30,19 @@ export default function MilitaryDetailPage({ params }: { params: { id: string } 
 
   // Diccionario de traducciones para las especificaciones
   const specLabels: Record<string, { en: string; es: string }> = {
-    loa: { en: 'Length (LOA)', es: 'Eslora (LOA)' },
-    length: { en: 'Length (LOA)', es: 'Eslora (LOA)' },
-    beam: { en: 'Beam', es: 'Manga' },
-    crew: { en: 'Crew', es: 'Tripulación' },
-    engines: { en: 'Engines', es: 'Motores' },
-    maxSpeed: { en: 'Max Speed', es: 'Velocidad Máx.' },
-    range: { en: 'Range', es: 'Autonomía' }
-  };
+  loa:          { en: 'Length (LOA)',    es: 'Eslora (LOA)' },
+  beam:         { en: 'Beam',           es: 'Manga' },
+  depth:        { en: 'Depth',          es: 'Puntal' },
+  draft:        { en: 'Draft',          es: 'Calado' },
+  passengers:   { en: 'Passengers',     es: 'Pasajeros' },
+  fuelCapacity: { en: 'Fuel Tank',      es: 'Tanque Combustible' },
+  maxLoad:      { en: 'Max Load',       es: 'Carga Máxima' },
+  engines:      { en: 'Engines',        es: 'Motores' },
+  crew:         { en: 'Crew',           es: 'Tripulación' },
+  maxSpeed:     { en: 'Max Speed',      es: 'Velocidad Máx.' },
+  range:        { en: 'Range',          es: 'Autonomía' },
+};
+
 
   // Obtenemos las traducciones de PDF y Features
   const pdfUrl = language === 'en' ? (model as any).pdfEn : (model as any).pdfEs;

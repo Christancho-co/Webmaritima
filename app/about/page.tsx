@@ -5,9 +5,51 @@ import Link from 'next/link';
 import { Anchor } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { IMAGES } from '@/lib/constants';
+import { useState, useRef, useEffect } from 'react';
 
 export default function AboutPage() {
   const { language } = useLanguage();
+  // lista de miniaturas (ajusta rutas/nombres)
+const thumbs = [
+  '/images/astillero/1.jpg',
+  '/images/astillero/2.jpg',
+  '/images/astillero/3.jpg',
+  '/images/astillero/4.jpg',
+  '/images/astillero/5.jpg',
+  '/images/astillero/6.jpg',
+  '/images/astillero/7.jpg',
+  '/images/astillero/8.jpg',
+  '/images/astillero/9.jpg',
+  '/images/astillero/10.jpg',
+  
+];
+
+const trackRef = useRef<HTMLDivElement | null>(null);
+const [modalOpen, setModalOpen] = useState(false);
+const [modalImage, setModalImage] = useState('');
+
+// abrir visor
+function openViewer(src: string) {
+  setModalImage(src);
+  setModalOpen(true);
+  if (trackRef.current) trackRef.current.style.animationPlayState = 'paused';
+}
+
+// cerrar visor
+function closeViewer() {
+  setModalOpen(false);
+  setModalImage('');
+  if (trackRef.current) trackRef.current.style.animationPlayState = 'running';
+}
+
+// cerrar con Escape
+useEffect(() => {
+  function onKey(e: KeyboardEvent) {
+    if (e.key === 'Escape') closeViewer();
+  }
+  window.addEventListener('keydown', onKey);
+  return () => window.removeEventListener('keydown', onKey);
+}, []);
 
   return (
     <div className="min-h-screen bg-[#00142A] text-white selection:bg-[#00CED1] selection:text-[#00142A]">
@@ -16,7 +58,7 @@ export default function AboutPage() {
       <section className="relative h-[50vh] md:h-[70vh] flex flex-col justify-start pt-24 md:pt-32 px-6 md:px-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMAGES.pilot42Profile} // Reemplaza con la foto del bote Pilot rojo en el mar
+            src={IMAGES.about} // Reemplaza con la foto del bote Pilot rojo en el mar
             alt="Maritima Pilot Boat"
             fill
             className="object-cover object-center"
@@ -30,10 +72,10 @@ export default function AboutPage() {
           <h1 className="text-3xl md:text-5xl font-sans tracking-wide font-medium mb-4">
             {language === 'en' ? 'We are Maritima Boats.' : 'Somos Maritima Boats.'}
           </h1>
-          <p className="text-sm md:text-base text-white/80 max-w-md font-sans font-light leading-relaxed mb-6">
+          <p className="text-sm md:text-base text-white/80 max-w-md font-sans leading-relaxed font-medium mb-6">
             {language === 'en' 
-              ? 'Forged and led by generations of seafarers, harbor pilots, naval engineers, architects, captains, navigators, and fishermen.'
-              : 'Forjados y liderados por generaciones de marinos, pilotos de puerto, ingenieros navales, arquitectos, capitanes y pescadores.'}
+             ? 'Maritima Boats and Maritima del Caribe, is a shipyard located in Santa Marta that has become a national benchmark in specialized shipbuilding.' 
+             : 'Maritima Boats y Maritima del Caribe, es un astillero ubicado en Santa Marta que se ha convertido en un referente nacional en construcción naval especializada.'}
           </p>
              <Link 
              href="/recreational" 
@@ -44,10 +86,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── 2. LOGO GIGANTE BANNER (Fondo azul industrial) ── */}
+      {/* ── 2. LOGO GIGANTE BANNER (Fondo azul industrial) ── 
       <section className="relative h-[25vh] md:h-[40vh] flex items-center justify-center overflow-hidden border-y border-white/10">
          <div className="absolute inset-0 z-0">
-            {/* Foto de fondo oscuro de astillero/trabajadores */}
+            {/* Foto de fondo oscuro de astillero/trabajadores 
             <Image 
                 src="/images/astillero-bg.jpg" // CAMBIAR POR FOTO DE ASTILLERO OSCURA
                 alt="Maritima Shipyard" 
@@ -65,7 +107,114 @@ export default function AboutPage() {
                 className="w-full h-auto object-contain"
             />
          </div>
-      </section>
+      </section>*/}
+     {/* ── 2. MINI-FOTOS DESLIZANTES (Marquee) + VISOR (Lightbox) ── */}
+<section className="relative h-[40vh] md:h-[55vh] flex flex-col justify-center overflow-hidden border-y border-white/10 bg-[#00142A]">
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="/images/astillero-bg.jpg"
+      alt="Maritima Shipyard"
+      fill
+      className="object-cover opacity-20 mix-blend-multiply"
+    />
+    <div className="absolute inset-0 bg-[#002244]/60" />
+  </div>
+
+  <div className="relative z-10 w-full">
+    {/* Título Centrado */}
+    <div className="text-center mb-6">
+      <h2 className="font-monument text-white text-xl md:text-2xl tracking-[0.3em] uppercase">
+        {language === 'en' ? 'Shipyard' : 'Astillero'}
+      </h2>
+      <div className="w-12 h-px bg-[#00CED1] mx-auto mt-2 opacity-50" />
+    </div>
+
+    {/* Marquee */}
+    <div className="overflow-hidden group">
+      <div
+        ref={trackRef as any}
+        className="flex space-x-4 md:space-x-8 items-center will-change-transform"
+        style={{
+          animation: 'marquee-left 40s linear infinite',
+          width: 'max-content',
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget as HTMLDivElement;
+          el.style.animationPlayState = 'paused';
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget as HTMLDivElement;
+          // no reactivar si el modal está abierto
+          if (!modalOpen) el.style.animationPlayState = 'running';
+        }}
+      >
+        {thumbs.map((src, i) => (
+          <button
+            key={`thumb-${i}`}
+            type="button"
+            onClick={() => openViewer(src)}
+            className="block flex-shrink-0 rounded-lg overflow-hidden shadow-2xl border border-white/10 transform hover:scale-105 transition-all duration-300 focus:outline-none"
+          >
+            <div className="w-[280px] h-[180px] md:w-[450px] md:h-[280px] relative">
+              <Image src={src} alt={`Astillero ${i + 1}`} fill className="object-cover" />
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors" />
+            </div>
+          </button>
+        ))}
+
+        {/* duplicados para loop continuo */}
+        {thumbs.map((src, i) => (
+          <button
+            key={`thumb-dup-${i}`}
+            type="button"
+            onClick={() => openViewer(src)}
+            className="block flex-shrink-0 rounded-lg overflow-hidden shadow-2xl border border-white/10 transform hover:scale-105 transition-all duration-300 focus:outline-none"
+          >
+            <div className="w-[280px] h-[180px] md:w-[450px] md:h-[280px] relative">
+              <Image src={src} alt={`Astillero duplicate ${i + 1}`} fill className="object-cover" />
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* VISOR / LIGHTBOX */}
+  {modalOpen && (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+      onClick={closeViewer} // clic fuera cierra
+    >
+      <div
+        className="relative w-full max-w-[90vw] max-h-[90vh] rounded-md overflow-hidden"
+        onClick={(e) => e.stopPropagation()} // evitar que el clic dentro cierre por error
+      >
+        <button
+          aria-label="Cerrar"
+          onClick={closeViewer}
+          className="absolute top-3 right-3 z-50 bg-black/40 text-white p-2 rounded-full hover:bg-black/60"
+        >
+          ✕
+        </button>
+
+        <div
+          className="relative w-full h-[60vh] md:h-[80vh] cursor-zoom-out"
+          onClick={closeViewer} // clic en la imagen también cierra
+        >
+          <Image src={modalImage} alt="Astillero enlarge" fill className="object-contain" />
+        </div>
+      </div>
+    </div>
+  )}
+
+  <style jsx>{`
+    @keyframes marquee-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  `}</style>
+</section>
+         
 
       {/* ── 3. INTRO TEXT & ANCHOR (Fondo Azul Oscuro) ── */}
       <section className="py-20 md:py-32 px-6 md:px-16 bg-[#00142A]">
@@ -76,11 +225,6 @@ export default function AboutPage() {
                 </h2>
                 
                 <div className="space-y-6 text-white/70 font-sans text-sm md:text-base font-light leading-relaxed">
-                    <p className="font-medium text-white">
-                        {language === 'en' 
-                        ? 'Maritima Boats and Maritima del Caribe, is a shipyard located in Santa Marta that has become a national benchmark in specialized shipbuilding.' 
-                        : 'Maritima Boats y Maritima del Caribe, es un astillero ubicado en Santa Marta que se ha convertido en un referente nacional en construcción naval especializada.'}
-                    </p>
                     <p>
                         {language === 'en'
                         ? 'Forged and led by generations of seafarers, harbor pilots, naval engineers, architects, captains, navigators, and fishermen, they have passed on their knowledge and expertise to design and build vessels for all maritime scenarios. Prioritizing research and innovation as the main drivers of naval technological development, Maritima Boats focuses on building vessels with added value in:'
@@ -95,20 +239,29 @@ export default function AboutPage() {
             </div>
             
             {/* Ícono de ancla a la derecha (estilo stencil/blanco) */}
+            
             <div className="hidden lg:flex justify-center items-center p-8">
-                <Anchor className="w-20 h-20 text-white/80" strokeWidth={1} />
-            </div>
+              <div className="w-20 h-20 relative">
+                   <Image
+                    src="/images/ancla.png" // Reemplaza con tu imagen de ancla blanca
+                    alt="Astillero Logo"
+                    fill
+                    className="object-contain"
+                 />
+             </div>
+          </div>
         </div>
+     
       </section>
 
       {/* ── 4. SANTA MARTA BLUEPRINT BOX ── */}
       <section className="px-6 md:px-16 pb-20 bg-[#00142A]">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
             <div className="border border-white/30 p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row gap-8">
                 {/* Elementos decorativos de fondo (topografía y brújula) */}
-                <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none">
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-50 pointer-events-none">
                      <Image 
-                        src="/images/compass-bg.png" // Reemplazar con imagen de brújula o líneas
+                        src="/images/compass.png" // Reemplazar con imagen de brújula o líneas
                         alt="Compass Blueprint" 
                         fill 
                         className="object-cover object-right"
@@ -116,7 +269,7 @@ export default function AboutPage() {
                 </div>
 
                 <div className="relative z-10 max-w-xl text-white/80 text-sm md:text-base font-light leading-relaxed">
-                    <p className="font-bold text-white mb-6 uppercase tracking-widest text-xs">
+                    <p className="font-bold text-white mb-6 uppercase tracking-widest text-xl">
                          {language === 'en' ? 'Maritima Boats in Santa Marta, Colombia' : 'Maritima Boats en Santa Marta, Colombia'}
                     </p>
                     <p>
@@ -126,12 +279,17 @@ export default function AboutPage() {
                     </p>
                 </div>
                 
-                {/* Logo M circular */}
-                <div className="relative z-10 flex items-end justify-start md:justify-end mt-4 md:mt-0">
-                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[#00142A] font-black text-2xl">
-                        M
-                    </div>
+                {/* Logo M (Solo la imagen, sin círculo blanco) */}
+                <div className="absolute top-4 right-4 z-20 w-16 h-16 md:w-24 md:h-24">
+                     <div className="w-20 h-20 relative"> {/* Contenedor para controlar el tamaño del logo */}
+                     <Image 
+                      src="/images/logo-maritima.png" // Asegúrate de que esta sea la ruta de tu logo (el que antes era la M)
+                     alt="Maritima Logo"
+                     fill
+                     className="object-contain" // Esto hace que el logo mantenga su forma sin deformarse
+                 />
                 </div>
+             </div>
             </div>
         </div>
       </section>
@@ -142,7 +300,7 @@ export default function AboutPage() {
             
             {/* Texto Script */}
             <div className="w-full md:w-1/2 space-y-8">
-                <h3 className="font-script text-4xl md:text-6xl text-white leading-tight">
+                <h3 className="font-brigend text-white text-5xl md:text-6xl leading-tight mb-10 whitespace-pre-line">
                     {language === 'en' 
                     ? 'Legacy, Efficiency, Innovation And Trust At Sea.' 
                     : 'Legado, Eficiencia, Innovación y Confianza en el Mar.'}
@@ -153,10 +311,10 @@ export default function AboutPage() {
                 {/* Logo ABYC */}
                 <div className="pt-4">
                      <Image 
-                        src="/images/abyc-logo-blanco.png" // Reemplaza con el logo de ABYC en blanco
+                        src="/images/ABYC-member-logo.webp" // Reemplaza con el logo de ABYC en blanco
                         alt="ABYC Member" 
-                        width={120} 
-                        height={40} 
+                        width={300} 
+                        height={300} 
                         className="object-contain opacity-80"
                     />
                 </div>
@@ -175,41 +333,41 @@ export default function AboutPage() {
       </section>
 
       {/* ── 6. CURVAS TOPOGRÁFICAS (CYAN) & BOTE VISTO DESDE ARRIBA ── */}
-      {/* Esta sección usa un fondo SVG o imagen de curvas, y sobrepone un bote */}
-      <section className="relative h-[80vh] md:h-screen w-full bg-[#00CED1] overflow-hidden flex flex-col items-center">
+      {/* Esta sección usa un fondo SVG o imagen de curvas, y sobrepone un bote *
+      <section className="relative h-[80vh] md:h-screen w-full bg-[#00CED1]/10 overflow-hidden flex flex-col items-center">
           {/* Fondo de curvas */}
-          <div className="absolute inset-0 z-0">
+         {/*  <div className="absolute inset-0 z-0">
                <Image 
-                  src="/images/topographic-sea.svg" // NECESITARÁS UNA IMAGEN SVG/PNG DE LAS CURVAS CELESTES
+                  src="/images/topographic-sea.png" // NECESITARÁS UNA IMAGEN SVG/PNG DE LAS CURVAS CELESTES
                   alt="Sea Topography"
                   fill
                   className="object-cover opacity-40 mix-blend-color-burn"
-               />
+               />*/}
                {/* Sombra oscura arriba para hacer transición suave desde la sección oscura */}
-               <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#00142A] to-transparent"></div>
-          </div>
+             {/*  <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#00142A] to-transparent"></div>
+          </div>*/}
           
           {/* Logo pequeñito centrado arriba */}
-          <div className="relative z-10 pt-24">
+         {/* <div className="relative z-10 pt-24">
              <Image 
-                src="/images/logo-maritima-blanco.png" 
+                src="/images/logo-maritima.png" 
                 alt="Maritima" 
                 width={150} 
                 height={40} 
                 className="object-contain"
              />
-          </div>
+          </div>*/}
 
           {/* Bote visto desde arriba cortando el patrón */}
-          <div className="absolute bottom-10 md:bottom-20 left-1/2 -translate-x-1/2 z-20 w-32 md:w-48 h-[300px] md:h-[450px]">
+         {/* <div className="absolute bottom-10 md:bottom-20 left-1/2 -translate-x-1/2 z-20 w-32 md:w-48 h-[300px] md:h-[450px]">
               <Image 
-                  src="/images/recreational/mt-31-topdown.png" // NECESITAS UNA FOTO DEL BOTE DESDE ARRIBA CON FONDO TRANSPARENTE
+                  src="/images/topographic-sea.png" // NECESITAS UNA FOTO DEL BOTE DESDE ARRIBA CON FONDO TRANSPARENTE
                   alt="Maritima Boat Top View"
                   fill
                   className="object-contain"
               />
-          </div>
-      </section>
+          </div>*/}
+    {/*  </section>*/}
 
       {/* ── 7. FOTO DEL EQUIPO FINAL (Muelle) ── */}
       <section className="relative h-[40vh] md:h-[50vh] w-full">

@@ -15,7 +15,7 @@ export default function NewsPage() {
         {/* Imagen de Fondo */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/recreational/mt-31-1.jpg" // Reemplaza por la imagen correcta de la pareja en el yate
+            src="/images/recreational/mt-31/10.jpg" // Reemplaza por la imagen correcta de la pareja en el yate
             alt="Maritima Boats News & Events"
             fill
             className="object-cover"
@@ -79,9 +79,23 @@ export default function NewsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-4 lg:gap-8 relative pt-8">
             
             {/* Ancla Central Flotante (Por encima de las imágenes) */}
-            <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10 bg-white px-4">
-              <Anchor className="w-10 h-10 text-[#001F3F]" strokeWidth={1.5} />
-            </div>
+            {/* Ancla Central Flotante (Usando PNG blanco con color aplicado por CSS) */}
+<div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 -translate-y-5 z-10 bg-white px-4 py-2">
+  <div 
+    className="w-10 h-10"
+    style={{
+      backgroundColor: '#000000', // AQUÍ CAMBIAS EL COLOR (Turquesa Maritima)
+      WebkitMaskImage: "url('/images/ancla.png')", // RUTA DE TU PNG
+      maskImage: "url('/images/tu-ancla-blanca.png')",
+      WebkitMaskRepeat: 'no-repeat',
+      maskRepeat: 'no-repeat',
+      WebkitMaskSize: 'contain',
+      maskSize: 'contain',
+      WebkitMaskPosition: 'center',
+      maskPosition: 'center',
+    }}
+  />
+</div>
             
             {/* Columna Izquierda: Latest News */}
             <div className="flex flex-col">
@@ -93,7 +107,7 @@ export default function NewsPage() {
               <div className="bg-[#f2f4f5] rounded-none overflow-hidden cursor-pointer hover:shadow-lg transition-shadow">
                 <div className="relative aspect-[16/9]">
                   <Image
-                    src="/images/military/tactical-45-2.jpg" // Reemplaza por la foto en blanco y negro del bote
+                    src="/images/work/pilot-42/1.jpg" // Reemplaza por la foto en blanco y negro del bote
                     alt="Latest News"
                     fill
                     className="object-cover"
@@ -121,7 +135,7 @@ export default function NewsPage() {
               <div className="bg-[#f2f4f5] rounded-none overflow-hidden cursor-pointer hover:shadow-lg transition-shadow">
                 <div className="relative aspect-[16/9]">
                   <Image
-                    src="/images/recreational/mt-31-2.jpg" // Reemplaza por la foto de la vista trasera del bote
+                    src="/images/recreational/mt-31/11.jpg" // Reemplaza por la foto de la vista trasera del bote
                     alt="Upcoming Events"
                     fill
                     className="object-cover"

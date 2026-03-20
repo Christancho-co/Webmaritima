@@ -28,15 +28,19 @@
       setActiveImage((prev) => (prev === model.images.length - 1 ? 0 : prev + 1));
 
     const specLabels: Record<string, { en: string; es: string }> = {
-      loa:          { en: 'Length (LOA)', es: 'Eslora (LOA)' },
-      beam:         { en: 'Beam',         es: 'Manga' },
-      depth:        { en: 'Depth',        es: 'Puntal' },
-      draft:        { en: 'Draft',        es: 'Calado' },
-      passengers:   { en: 'Passengers',   es: 'Pasajeros' },
-      fuelCapacity: { en: 'Fuel Tank',    es: 'Tanque Combustible' },
-      maxLoad:      { en: 'Max Load',     es: 'Carga Máxima' },
-      engines:      { en: 'Engines',      es: 'Motores' },
-    };
+  loa:          { en: 'Length (LOA)',    es: 'Eslora (LOA)' },
+  beam:         { en: 'Beam',           es: 'Manga' },
+  depth:        { en: 'Depth',          es: 'Puntal' },
+  draft:        { en: 'Draft',          es: 'Calado' },
+  passengers:   { en: 'Passengers',     es: 'Pasajeros' },
+  fuelCapacity: { en: 'Fuel Tank',      es: 'Tanque Combustible' },
+  maxLoad:      { en: 'Max Load',       es: 'Carga Máxima' },
+  engines:      { en: 'Engines',        es: 'Motores' },
+  crew:         { en: 'Crew',           es: 'Tripulación' },
+  maxSpeed:     { en: 'Max Speed',      es: 'Velocidad Máx.' },
+  range:        { en: 'Range',          es: 'Autonomía' },
+};
+
 
     // PDF según idioma activo
     const pdfUrl = language === 'en'

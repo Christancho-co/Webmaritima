@@ -1,21 +1,21 @@
 export const IMAGES = {
-  hero: '/images/fondo.png',
+  hero: '/images/fondo.jpg',
 
   // Recreational MT-21 (6 fotos: portada + 5 galería)
-  mt21:         '/images/recreational/mt-21/1.png',
-  mt21Gallery1: '/images/recreational/mt-21/2.png',
-  mt21Gallery2: '/images/recreational/mt-21/3.png',
-  mt21Gallery3: '/images/recreational/mt-21/4.png',
-  mt21Gallery4: '/images/recreational/mt-21/5.png',
-  mt21Gallery5: '/images/recreational/mt-21/6.png',
+  mt21:         '/images/recreational/mt-21/1.jpg',
+  mt21Gallery1: '/images/recreational/mt-21/2.jpg',
+  mt21Gallery2: '/images/recreational/mt-21/3.jpg',
+  mt21Gallery3: '/images/recreational/mt-21/4.jpg',
+  mt21Gallery4: '/images/recreational/mt-21/5.jpg',
+  mt21Gallery5: '/images/recreational/mt-21/6.jpg',
 
   // Recreational MT-31 (4 fotos: portada + 3 galería)
-  mt31:         '/images/recreational/mt-31/1.png',
-  mt31Gallery1: '/images/recreational/mt-31/2.png',
-  mt31Gallery2: '/images/recreational/mt-31/3.png',
-  mt31Gallery3: '/images/recreational/mt-31/4.png',
-  mt31Gallery4: '/images/recreational/mt-31/5.png',
-  mt31Gallery5: '/images/recreational/mt-31/6.png',
+  mt31:         '/images/recreational/mt-31/1.jpg',
+  mt31Gallery1: '/images/recreational/mt-31/2.jpg',
+  mt31Gallery2: '/images/recreational/mt-31/3.jpg',
+  mt31Gallery3: '/images/recreational/mt-31/4.jpg',
+  mt31Gallery4: '/images/recreational/mt-31/5.jpg',
+  mt31Gallery5: '/images/recreational/mt-31/6.jpg',
   // Work
  // Work - Pilot 42
  pilot42:        '/images/work/pilot-42/1.jpg',
@@ -25,34 +25,50 @@ export const IMAGES = {
  pilot42Gallery4: '/images/work/pilot-42/5.jpg',
  pilot42Gallery5: '/images/work/pilot-42/6.jpg',
 
-// Work - Pilot 38
- pilot42Profile:  '/images/work/pilot-38/1.jpg',  // portada pilot 38
- pilot38Gallery1: '/images/work/pilot-38/2.jpg',
- pilot38Gallery2: '/images/work/pilot-38/3.jpg',
- pilot38Gallery3: '/images/work/pilot-38/4.jpg',
- pilot38Gallery4: '/images/work/pilot-38/5.jpg',
- pilot38Gallery5: '/images/work/pilot-38/6.jpg',
+// Work - Gaira 24
+ gaira24Profile:  '/images/work/gaira-24/1.jpg',  // portada gaira 24
+ gaira24Gallery1: '/images/work/gaira-24/2.jpg',
+ gaira24Gallery2: '/images/work/gaira-24/3.jpg',
+ gaira24Gallery3: '/images/work/gaira-24/4.jpg',
+ gaira24Gallery4: '/images/work/gaira-24/5.jpg',
+ gaira24Gallery5: '/images/work/gaira-24/6.jpg',
 
- // Military - Alligator
-alligator:         '/images/military/alligator-1.jpg',
-alligatorGallery1: '/images/military/alligator-2.jpg',
-alligatorGallery2: '/images/military/alligator-3.jpg',
-alligatorGallery3: '/images/military/alligator-4.jpg',
+ // Military - Alligator 37
+alligator37:         '/images/military/alligator37/1.jpg',
+alligator37Gallery1: '/images/military/alligator37/2.jpg',
+alligator37Gallery2: '/images/military/alligator37/3.jpg',
+alligator37Gallery3: '/images/military/alligator37/4.jpg',
+alligator37Gallery4: '/images/military/alligator37/5.jpg',
+alligator37Gallery5: '/images/military/alligator37/6.jpg',
 
-// Military - Tactical 45
-alligatorAction:    '/images/military/tactical-45-1.jpg',
-tactical45Gallery1: '/images/military/tactical-45-2.jpg',
-tactical45Gallery2: '/images/military/tactical-45-3.jpg',
-tactical45Gallery3: '/images/military/tactical-45-4.jpg',
+// Military - Hunter 38
+hunter38:    '/images/military/hunter38/1.jpg',
+hunter38Gallery1: '/images/military/hunter38/2.jpg',
+hunter38Gallery2: '/images/military/hunter38/3.jpg',
+hunter38Gallery3: '/images/military/hunter38/4.jpg',
+hunter38Gallery4: '/images/military/hunter38/5.jpg',
+hunter38Gallery5: '/images/military/hunter38/6.jpg',
+
+//speciales
+magdalena:        '/images/special/magdalena/1.jpg',
+magdalenaGallery1: '/images/special/magdalena/2.jpg',
+magdalenaGallery2: '/images/special/magdalena/3.jpg',
+magdalenaGallery3: '/images/special/magdalena/4.jpg',
+magdalenaGallery4: '/images/special/magdalena/5.jpg',
+magdalenaGallery5: '/images/special/magdalena/6.jpg',
+
+//astillero
+astillero:       '/images/astillero/1.jpg',
 
 
   // Otros
-  team:             'https://cdn.abacus.ai/images/adda9d8f-89b1-4017-9b41-95408e0be7a9.png',
-  waves:            'https://cdn.abacus.ai/images/3df1c0b1-aa43-444d-9243-cb1f33a45aef.jpg',
-  storeApparel:     'https://cdn.abacus.ai/images/ab9b3765-c4ab-40d0-995f-f9170d4eb2b3.png',
-  storeGear:        'https://cdn.abacus.ai/images/58b37436-5581-47e1-83cd-f5c1ee33649e.png',
-  storeElectronics: 'https://cdn.abacus.ai/images/21f5fe65-d9e6-4b89-8098-4db017097763.png',
-  oceanTexture:     'https://cdn.abacus.ai/images/95d1ed49-fa11-4a1e-96dc-27dd51058a46.jpg',
+  about:            '/images/about.jpg',
+  team:             '/images/gente.jpg',
+  waves:            '/images/topographic-sea.png',
+  storeApparel:     '',
+  storeGear:        '',
+  storeElectronics: '',
+  oceanTexture:     '/images/topographic-sea.png',
 };
 
 export const NAV_LINKS = [

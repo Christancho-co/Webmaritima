@@ -26,10 +26,10 @@ export default function InstitutionalPage() {
         </div>
 
         <div className="relative z-10 text-center px-4 -mt-40 md:-mt-61">
-           <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-40px] md:-mt-40">
+          <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-40px] md:-mt-40">
             {language === 'en' ? 'INSTITUTIONAL' : 'INSTITUCIONAL'}
           </h1>
-          <p className="text-[#001f3f]/70 text-base md:text-lg max-w-xl mx-auto font-sans px-4">
+          <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto font-extrabold px-4">
             {language === 'en'
               ? 'Professional vessels engineered for demanding maritime operations.'
               : 'Embarcaciones profesionales diseñadas para operaciones maritimas exigentes.'}
@@ -57,69 +57,88 @@ export default function InstitutionalPage() {
               ? 'md:grid-cols-2'
               : 'md:grid-cols-2 lg:grid-cols-3'
           }`}>
-            {models.map((model) => (
-              <Link
-                key={model.id}
-                href={`/institutional/${model.id}`}
-                className="group relative block overflow-hidden rounded-lg"
-              >
-                {/* Imagen portada */}
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={(model as any).coverImage ?? model.images[0]}
-                    alt={model.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+            {models.map((model, idx) => {
+              // Prefijo fijo para los dos primeros: primer = PILOT, segundo = GAIRA
+              const prefix =
+                idx === 0 ? 'PILOT' :
+                idx === 1 ? 'GAIRA' :
+                // fallback: intentar extraer del nombre si existe un prefijo
+                ((model.name ?? '').match(/^(Gaira|Pilot|MT-)/i)?.[0] ?? '')
+                  .replace(/-$/, '')
+                  .trim()
+                  .toUpperCase();
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              // Extraer número (ej. "MT-21" -> "21") o, si no hay dígitos, quitar prefijos y mostrar lo que quede
+              const displayNumber =
+                (model.name ?? '').match(/\d+/)?.[0] ??
+                ((model.name ?? '').replace(/^(?:Gaira|Pilot|MT-)\s*/i, '').trim());
 
-                  {/* Número en METAG */}
-                  <div className="absolute bottom-4 left-4 z-10 leading-none select-none">
-                    <span className="font-metag text-white/50 text-base tracking-widest block mb-1">
-                      PILOT 
-                    </span>
-                    <span className="font-metag  text-white text-[80px] md:text-[100px] leading-none opacity-90 group-hover:opacity-100 transition-opacity">
-                      {model.name.replace('Pilot ', '')}
-                    </span>
-                  </div>
-
-                  {/* Logo */}
-                  <div className="absolute top-4 right-4 z-10">
+              return (
+                <Link
+                  key={model.id}
+                  href={`/institutional/${model.id}`}
+                  className="group relative block overflow-hidden rounded-lg"
+                >
+                  {/* Imagen portada */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
-                      src="/images/logo-maritima.png"
-                      alt="Maritima"
-                      width={60}
-                      height={30}
-                      className="object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                      src={(model as any).coverImage ?? model.images[0]}
+                      alt={model.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                    {/* Prefijo y número en METAG */}
+                    <div className="absolute bottom-4 left-4 z-10 leading-none select-none">
+                      {prefix && (
+                        <span className="font-metag text-white/50 text-base tracking-widest block mb-1">
+                          {prefix}
+                        </span>
+                      )}
+                      <span className="font-metag text-white text-[80px] md:text-[100px] leading-none opacity-90 group-hover:opacity-100 transition-opacity">
+                        {displayNumber}
+                      </span>
+                    </div>
+
+                    {/* Logo */}
+                    <div className="absolute top-4 right-4 z-10">
+                      <Image
+                        src="/images/logo-maritima.png"
+                        alt="Maritima"
+                        width={60}
+                        height={30}
+                        className="object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+
+                    {/* Hover: Ver más */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                      <span className="bg-[#00CED1] text-white text-sm font-bold tracking-widest px-6 py-3 rounded-full uppercase font-sans">
+                        {language === 'en' ? 'View Model' : 'Ver Modelo'}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Hover: Ver más */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <span className="bg-[#00CED1] text-white text-sm font-bold tracking-widest px-6 py-3 rounded-full uppercase font-sans">
-                      {language === 'en' ? 'View Model' : 'Ver Modelo'}
+                  {/* Info debajo de imagen */}
+                  <div className="bg-[#001F3F] border border-white/10 px-6 py-4 flex items-center justify-between group-hover:border-[#00CED1]/40 transition-colors">
+                    <div>
+                      <span className="font-monument text-white text-xl tracking-wider block">
+                        {model.name}
+                      </span>
+                      <span className="text-white/50 text-xs font-sans mt-1 block">
+                        {model.tagline}
+                      </span>
+                    </div>
+                    <span className="text-[#00CED1] text-sm font-sans tracking-widest uppercase">
+                      {language === 'en' ? 'Details' : 'Detalles'} →
                     </span>
                   </div>
-                </div>
-
-                {/* Info debajo de imagen */}
-                <div className="bg-[#001F3F] border border-white/10 px-6 py-4 flex items-center justify-between group-hover:border-[#00CED1]/40 transition-colors">
-                  <div>
-                    <span className="font-monument text-white text-xl tracking-wider block">
-                      {model.name}
-                    </span>
-                    <span className="text-white/50 text-xs font-sans mt-1 block">
-                      {model.tagline}
-                    </span>
-                  </div>
-                  <span className="text-[#00CED1] text-sm font-sans tracking-widest uppercase">
-                    {language === 'en' ? 'Details' : 'Detalles'} →
-                  </span>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

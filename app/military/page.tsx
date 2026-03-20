@@ -26,13 +26,11 @@ export default function MilitaryPage() {
         </div>
 
         <div className="relative z-10 text-center px-4 -mt-10 md:mt-0">
-          <p className="text-[#00CED1] text-sm tracking-[0.4em] uppercase mb-3 font-sans">
-            Maritima Boats
-          </p>
-          <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white tracking-wider mb-4">
+        
+          <h1 className="font-monument text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-[#001f3f] tracking-wider mb-4 mt-[-20px] md:-mt-40">
             {language === 'en' ? 'MILITARY GRADE' : 'GRADO MILITAR'}
           </h1>
-          <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto font-sans px-4">
+          <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto font-bold px-4">
             {language === 'en'
               ? 'Tactical vessels engineered for defense and high-risk maritime operations.'
               : 'Embarcaciones tacticas disenadas para defensa y operaciones maritimas de alto riesgo.'}

@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Anchor, Ship, Shield, Wrench } from 'lucide-react';
+import { Ship,Anchor, Sailboat, Wrench } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
@@ -55,7 +55,7 @@ export default function HomePage() {
                 <h3 className="text-white text-base md:text-lg font-bold">{t.categories.recreational}</h3>
                 <p className="text-[#00CED1] text-xs mt-1">{t.categories.recreationalSub}</p>
               </div>
-              <Ship className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
+              <Sailboat className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
             </Link>
 
             {/* Work */}
@@ -67,7 +67,7 @@ export default function HomePage() {
                 <h3 className="text-white text-base md:text-lg font-bold">{t.categories.institutional}</h3>
                 <p className="text-[#00CED1] text-xs mt-1">{t.categories.institutionalSub}</p>
               </div>
-              <Wrench className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
+              <Anchor className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
             </Link>
 
             {/* Military Grade */}
@@ -79,7 +79,7 @@ export default function HomePage() {
                 <h3 className="text-white text-base md:text-lg font-bold">{t.categories.military}</h3>
                 <p className="text-[#00CED1] text-xs mt-1">{t.categories.militarySub}</p>
               </div>
-              <Shield className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
+              <Ship className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
             </Link>
 
             {/* Special Projects */}
@@ -91,13 +91,42 @@ export default function HomePage() {
                 <h3 className="text-white text-base md:text-lg font-bold">{t.categories.special}</h3>
                 <p className="text-[#00CED1] text-xs mt-1">{t.categories.specialSub}</p>
               </div>
-              <Anchor className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
+              <Wrench className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#00CED1] transition-colors flex-shrink-0" />
             </Link>
 
           </div>
         </div>
       </section>
+{/* ── Sección de Marcas / Respaldo ── */}
+<section className="py-12 bg-[#001F3F] border-t border-white/5">
+  <div className="container mx-auto px-4">
+    {/* Título sutil opcional */}
+    <p className="text-center text-white/90 text-[15px] uppercase tracking-[0.3em] mb-8">
+      {useLanguage().language === 'en' ? 'Certified Excellence' : 'Excelencia Certificada'}
+    </p>
 
+    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
+      
+      {/* Logo ABYC */}
+      <div className="relative w-[140px] h-[50px] md:w-[180px] md:h-[60px] white hover:black- transition-all duration-300">
+        <Image
+          src="/images/ABYC-member-logo.webp"
+          alt="ABYC Member"
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      {/* Aquí puedes añadir más logos en el futuro siguiendo la misma estructura */}
+      {/* Ejemplo de otro logo:
+      <div className="relative w-[140px] h-[50px] md:w-[180px] md:h-[60px] grayscale hover:grayscale-0 transition-all">
+        <Image src="/images/otro-logo.png" alt="Partner" fill className="object-contain" />
+      </div> 
+      */}
+
+    </div>
+  </div>
+</section>
     </div>
   );
 }
