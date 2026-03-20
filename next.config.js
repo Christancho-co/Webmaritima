@@ -4,10 +4,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true, // Lo ponemos en true para que no falle el build por tipos ahora
+    ignoreBuildErrors: true,
   },
-  images: { 
-    unoptimized: true 
+  images: {
+    formats: ['image/webp', 'image/avif'], // convierte automáticamente a WebP/AVIF
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
 };
 
