@@ -138,10 +138,11 @@ export default function ContactForm() {
         <option value="">{t.selectModel}</option>
         <option value="MT-21">MT-21 - Lifestyle</option>
         <option value="MT-31">MT-31 - Lifestyle</option>
+        <option value="Hunter 38">Hunter 38 - Lifestyle</option>
         <option value="Pilot 42">Pilot 42</option>
         <option value="Gaira 24">Gaira 24</option>
         <option value="Alligator 37">Alligator 37</option>
-        <option value="Hunter 38">Hunter 38</option>
+        
       </select>
 
       {/* MESSAGE */}
