@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import NewsletterForm from '@/components/newsletter-form';
 import { Anchor } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -36,24 +37,7 @@ export default function NewsPage() {
               <h2 className="text-white text-xl sm:text-2xl font-sans tracking-wide mb-4">
                 {language === 'en' ? 'Subscribe to our Newsletter' : 'Suscríbete a nuestro Boletín'}
               </h2>
-              <form className="flex flex-col gap-2 w-full">
-                <input
-                  type="text"
-                  placeholder={language === 'en' ? 'Name' : 'Nombre'}
-                  className="px-4 py-2 w-full bg-white text-[#001F3F] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#00CED1]"
-                />
-                <input
-                  type="email"
-                  placeholder={language === 'en' ? 'Email Address' : 'Correo Electrónico'}
-                  className="px-4 py-2 w-full bg-white text-[#001F3F] font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#00CED1]"
-                />
-                <button
-                  type="submit"
-                  className="mt-2 w-full bg-[#001F3F] hover:bg-[#003366] transition-colors text-white font-sans text-sm py-2 px-6 uppercase tracking-widest border border-[#001F3F]"
-                >
-                  {language === 'en' ? 'Subscribe' : 'Suscribirse'}
-                </button>
-              </form>
+              <NewsletterForm source="news-page" />
             </div>
 
             {/* Sello animado flotando a la derecha absoluta */}
