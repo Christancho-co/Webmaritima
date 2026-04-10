@@ -41,13 +41,13 @@ alligator37Gallery3: '/images/military/alligator37/4.jpg',
 alligator37Gallery4: '/images/military/alligator37/5.jpg',
 alligator37Gallery5: '/images/military/alligator37/6.jpg',
 
-// Military - Hunter 38
-hunter38:    '/images/military/hunter38/1.jpg',
-hunter38Gallery1: '/images/military/hunter38/2.jpg',
-hunter38Gallery2: '/images/military/hunter38/3.jpg',
-hunter38Gallery3: '/images/military/hunter38/4.jpg',
-hunter38Gallery4: '/images/military/hunter38/5.jpg',
-hunter38Gallery5: '/images/military/hunter38/6.jpg',
+// Military - Hunter 43
+hunter43:    '/images/military/hunter43/1.jpg',
+hunter43Gallery1: '/images/military/hunter43/2.jpg',
+hunter43Gallery2: '/images/military/hunter43/3.jpg',
+hunter43Gallery3: '/images/military/hunter43/4.jpg',
+hunter43Gallery4: '/images/military/hunter43/5.jpg',
+hunter43Gallery5: '/images/military/hunter43/6.jpg',
 
 //speciales
 magdalena:        '/images/special/magdalena/1.jpg',
